@@ -442,8 +442,28 @@
     margin-top:30px;
     flex-wrap:wrap;
   }
-  .gallery .photo-slot{height:160px; flex:1 1 160px;}
+  .gallery .photo-slot
+  {height:160px; flex:1 1 160px;}
+  
+/* Free Time photos */
+.free-time-card .photo-slot {
+  width: 100%;
+  max-height: 320px;
+  margin-top: 16px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--paper-dim);
+}
 
+.free-time-card .photo-slot img {
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
+}
+  
   /* ===== SKILLS ===== */
   .skills-block{margin-bottom:30px;}
   .skills-block h3{
@@ -888,11 +908,7 @@ Beyond work, I love learning new things, explore new ideas, explore the world an
           Currently learning Japanese through Duolingo — one lesson,
           one streak, and one new word at a time.
         </p>
-      </div>
-       <div class="photo-slot">
-          <img src="japanese.jpg" alt="japanese">
-          <span>📸 japanese.jpg</span>
-        </div>
+  
     </div>
 
   </div>
