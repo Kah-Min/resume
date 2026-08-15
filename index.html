@@ -445,31 +445,66 @@
   .gallery .photo-slot
   {height:160px; flex:1 1 160px;}
   
-/* Free Time photos */
+/* ===== FREE TIME ===== */
+
+.free-time-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
 
 .free-time-card {
-  margin-bottom: 80px;
-  
+  display: block;
+  padding-bottom: 20px;
+}
+
+.free-time-icon {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.free-time-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.free-time-card p {
+  color: var(--ink-soft);
+  font-size: 1rem;
+  margin-bottom: 18px;
+  max-width: 800px;
+}
+
+/* Photos inside Free Time */
+.free-time-card .photo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 18px;
+  align-items: flex-start;
+}
+
 .free-time-card .photo-slot {
   display: block;
-  width: fit-content;
+  width: auto;
   height: auto;
-  flex: none;
-  margin-top: 16px;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
   border-radius: 14px;
   overflow: hidden;
-  background: transparent;
-  border: none;
-  padding: 0;
 }
 
 .free-time-card .photo-slot img {
-  position: static;
   display: block;
+  position: static;
   width: auto;
   height: 180px;
   max-width: 100%;
   object-fit: contain;
+  border-radius: 14px;
 }
   
   /* ===== SKILLS ===== */
@@ -523,68 +558,117 @@
 
     <!-- FITNESS -->
     <div class="free-time-card">
+
       <div class="free-time-icon">🏋️</div>
-      <div>
-        <h3>Fitness</h3>
-        <p>
-          Keeping active, challenging myself, and enjoying the little
-          progress along the way.
-        </p>
+
+      <h3>Fitness</h3>
+
+      <p>
+        Keeping active, challenging myself, and enjoying the little
+        progress along the way.
+      </p>
+
+      <div class="photo-row">
+
+        <div class="photo-slot">
+          <img src="fitness-1.jpg" alt="Fitness">
+        </div>
+
+        <div class="photo-slot">
+          <img src="fitness-2.jpeg" alt="Fitness">
+        </div>
+
       </div>
+
     </div>
+
 
     <!-- PHOTOGRAPHY -->
     <div class="free-time-card">
+
       <div class="free-time-icon">📸</div>
-      <div>
-        <h3>Photography &amp; Filming</h3>
-        <p>
-          I enjoy capturing moments, filming events, and experimenting
-          with video editing and creative storytelling.
-        </p>
+
+      <h3>Photography &amp; Filming</h3>
+
+      <p>
+        I enjoy capturing moments, filming events, and experimenting
+        with video editing and creative storytelling.
+      </p>
+
+      <div class="photo-row">
+
+        <div class="photo-slot">
+          <img src="photography-1.jpeg" alt="Photography">
+        </div>
+
+        <div class="photo-slot">
+          <img src="photography-2.jpeg" alt="Photography">
+        </div>
+
       </div>
+
     </div>
+
 
     <!-- TRAVEL -->
     <div class="free-time-card">
+
       <div class="free-time-icon">✈️</div>
-      <div>
-        <h3>Travelling</h3>
-        <p>
-          Exploring new places, discovering new experiences, and
-          collecting little stories along the way.
-        </p>
+
+      <h3>Travelling</h3>
+
+      <p>
+        Exploring new places, discovering new experiences, and
+        collecting little stories along the way.
+      </p>
+
+      <div class="photo-row">
+
+        <div class="photo-slot">
+          <img src="travel-1.jpeg" alt="Travel">
+        </div>
+
+        <div class="photo-slot">
+          <img src="travel-2.jpeg" alt="Travel">
+        </div>
+
       </div>
+
     </div>
+
 
     <!-- BADMINTON -->
     <div class="free-time-card">
+
       <div class="free-time-icon">🏸</div>
-      <div>
-        <h3>Badminton</h3>
-        <p>
-          A fun way to stay active, spend time with friends, and
-          occasionally get way too competitive.
-        </p>
-      </div>
+
+      <h3>Badminton</h3>
+
+      <p>
+        A fun way to stay active, spend time with friends, and
+        occasionally get way too competitive.
+      </p>
+
     </div>
+
 
     <!-- JAPANESE -->
     <div class="free-time-card">
+
       <div class="free-time-icon">🇯🇵</div>
-      <div>
-        <h3>Learning Japanese</h3>
-        <p>
-          Currently learning Japanese through Duolingo — one lesson,
-          one streak, and one new word at a time.
-        </p>
-      </div>
+
+      <h3>Learning Japanese</h3>
+
+      <p>
+        Currently learning Japanese through Duolingo — one lesson,
+        one streak, and one new word at a time.
+      </p>
+
     </div>
 
   </div>
 
 </section>
-```
 
 </style>
 </head>
