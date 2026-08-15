@@ -1,947 +1,2114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yap Kah Min — Event & Program Coordinator</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#241B2F;
-    --ink-soft:#4A3F58;
-    --paper:#FBF3E7;
-    --paper-dim:#F3E7D6;
-    --paper-line:#E6D5BC;
-    --coral:#8ED8E8;
-    --coral-deep:#4FB8D0;
-    --gold:#FFB238;
-    --teal:#1F9E92;
-    --white:#FFFDF9;
-    --shadow: 0 12px 30px -12px rgba(36,27,47,0.28);
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
-  }
+  <title>Yap Kah Min — Event & Program Coordinator</title>
 
-  body{
-    font-family:'Space Grotesk', sans-serif;
-    background:var(--paper);
-    color:var(--ink);
-    line-height:1.6;
-    overflow-x:hidden;
-  }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.72rem;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    color:var(--coral-deep);
-    font-weight:600;
-  }
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  h1,h2,h3{
-    font-family:'Fraunces', serif;
-    color:var(--ink);
-    letter-spacing:-0.01em;
-  }
+  <style>
 
-  a{color:inherit; text-decoration:none;}
+    /* =========================================================
+       GENERAL
+    ========================================================= */
 
-  .wrap{
-    max-width:920px;
-    margin:0 auto;
-    padding:0 28px;
-  }
+    :root {
+      --ink: #241B2F;
+      --ink-soft: #4A3F58;
+      --paper: #FBF3E7;
+      --paper-dim: #F3E7D6;
+      --paper-line: #E6D5BC;
 
-  /* ===== NAV — styled like a lanyard/wristband strip ===== */
-  .nav-bar{
-    position:fixed;
-    top:0; left:0; right:0;
-    z-index:100;
-    background:rgba(251,243,231,0.92);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--paper-line);
-  }
-  .nav-inner{
-    max-width:920px;
-    margin:0 auto;
-    padding:14px 28px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px;
-  }
-  .nav-brand{
-    font-family:'Fraunces', serif;
-    font-weight:700;
-    font-size:1.05rem;
-    white-space:nowrap;
-  }
-  .nav-brand span{color:var(--coral-deep);}
-  .nav-links{
-    display:flex;
-    gap:6px;
-    flex-wrap:wrap;
-  }
-  .nav-links button{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.72rem;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    background:transparent;
-    border:1.5px solid var(--paper-line);
-    color:var(--ink-soft);
-    padding:8px 14px;
-    border-radius:999px;
-    cursor:pointer;
-    transition:all 0.25s ease;
-    font-weight:600;
-  }
-  .nav-links button:hover, .nav-links button:focus-visible{
-    border-color:var(--coral);
-    color:var(--coral-deep);
-    background:#FFF6F3;
-    outline:none;
-  }
-  .nav-links button.active{
-    background:var(--ink);
-    border-color:var(--ink);
-    color:var(--white);
-  }
-  .nav-toggle{display:none;}
+      --coral: #8ED8E8;
+      --coral-deep: #4FB8D0;
 
-  @media (max-width:720px){
-    .nav-links{
-      position:absolute;
-      top:100%; left:0; right:0;
-      background:var(--paper);
-      border-bottom:1px solid var(--paper-line);
-      flex-direction:column;
-      padding:10px 28px 18px;
-      display:none;
+      --gold: #FFB238;
+      --teal: #1F9E92;
+
+      --white: #FFFDF9;
+
+      --shadow: 0 12px 30px -12px rgba(36, 27, 47, 0.28);
     }
-    .nav-links.open{display:flex;}
-    .nav-links button{width:100%; text-align:left;}
-    .nav-toggle{
-      display:block;
-      background:var(--ink);
-      color:var(--white);
-      border:none;
-      width:38px; height:38px;
-      border-radius:10px;
-      font-size:1.1rem;
-      cursor:pointer;
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-  }
 
-  section{padding:110px 0 40px;}
-  #about{padding-top:150px;}
+    html {
+      scroll-behavior: smooth;
+    }
 
-  .reveal{
-    opacity:0;
-    transform:translateY(24px);
-    transition:opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.is-visible{opacity:1; transform:translateY(0);}
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-  /* ===== HERO ===== */
-  .pass{
-    background:var(--white);
-    border-radius:26px;
-    box-shadow:var(--shadow);
-    padding:0;
-    overflow:hidden;
-    position:relative;
-    border:1px solid var(--paper-line);
-  }
-  .pass-top{
-  background:linear-gradient(120deg, var(--coral) 0%, var(--coral-deep) 55%, #2F8FA8 100%);
-    padding:34px 36px 60px;
-    color:var(--ink);
-    position:relative;
-  }
-  .pass-top::after{
-    content:"";
-    position:absolute;
-    left:0; right:0; bottom:-1px;
-    height:34px;
-    background:radial-gradient(circle at 24px 0, transparent 15px, var(--white) 16px) repeat-x;
-    background-size:48px 34px;
-  }
-  .pass-kicker{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.74rem;
-    letter-spacing:0.2em;
-    text-transform:uppercase;
-    opacity:0.85;
-    margin-bottom:10px;
-  }
-  .pass-name{
-    font-family:'Fraunces', serif;
-    font-size:clamp(2.1rem, 6vw, 3.4rem);
-    font-weight:800;
-    line-height:1.02;
-    color:var(--ink);
-  }
-  .pass-role{
-    font-family:'Fraunces', serif;
-    font-style:italic;
-    font-weight:600;
-    font-size:1.15rem;
-    margin-top:10px;
-    opacity:0.95;
-  }
-  .pass-body{
-    padding:44px 36px 40px;
-    display:flex;
-    gap:32px;
-    align-items:flex-start;
-    flex-wrap:wrap;
-  }
-  .pass-photo{
-    width:150px;
-    height:150px;
-    border-radius:20px;
-    flex-shrink:0;
-    background:linear-gradient(145deg, #FFE8D6, #FFD3DB);
-    border:2px dashed var(--coral);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.68rem;
-    color:var(--coral-deep);
-    padding:10px;
-    position:relative;
-    overflow:hidden;
-  }
-  .pass-photo img{
-    position:absolute; inset:0;
-    width:100%; height:100%;
-    object-fit:cover;
-    display:none;
-  }
-  .pass-bio p{
-    max-width:480px;
-    color:var(--ink-soft);
-    font-size:1.02rem;
-  }
-  .pass-contact{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:18px;
-  }
-  .pass-contact a{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.75rem;
-    background:var(--paper-dim);
-    border:1px solid var(--paper-line);
-    padding:8px 14px;
-    border-radius:999px;
-    color:var(--ink);
-    transition:all 0.2s ease;
-  }
-  .pass-contact a:hover{background:var(--gold); border-color:var(--gold); color:var(--ink);}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  /* photo strip under about */
-  .photo-strip{
-    display:flex;
-    gap:14px;
-    margin-top:26px;
-    flex-wrap:wrap;
-  }
-  .photo-slot{
-    flex:1 1 140px;
-    height:120px;
-    border-radius:14px;
-    background:var(--paper-dim);
-    border:2px dashed var(--paper-line);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.66rem;
-    color:var(--ink-soft);
-    text-align:center;
-    padding:8px;
-    position:relative;
-    overflow:hidden;
-  }
-  .photo-slot img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  }
+    h1,
+    h2,
+    h3 {
+      font-family: 'Fraunces', serif;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
 
-  /* ===== SECTION HEADERS ===== */
-  .section-head{margin-bottom:30px;}
-  #free-time .section-head {
-  margin-bottom:15px;
-}
-  .section-head h2{
-    font-size:clamp(1.7rem, 4vw, 2.3rem);
-    margin-top:6px;
-  }
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
 
-  /* ===== TIMELINE (Education) ===== */
-  .timeline{
-    position:relative;
-    padding-left:28px;
-    border-left:2px solid var(--paper-line);
-  }
-  .t-item{
-    position:relative;
-    padding-bottom:30px;
-  }
-  .t-item:last-child{padding-bottom:0;}
-  .t-item::before{
-    content:"";
-    position:absolute;
-    left:-34px;
-    top:4px;
-    width:12px; height:12px;
-    border-radius:50%;
-    background:var(--coral);
-    border:3px solid var(--paper);
-    box-shadow:0 0 0 2px var(--coral);
-  }
-  .t-card{
-    background:var(--white);
-    border:1px solid var(--paper-line);
-    border-radius:16px;
-    padding:20px 24px;
-    box-shadow:var(--shadow);
-  }
-  .t-date{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.72rem;
-    color:var(--coral-deep);
-    letter-spacing:0.05em;
-    font-weight:600;
-    margin-bottom:6px;
-  }
-  .t-card h3{font-size:1.15rem; margin-bottom:4px;}
-  .t-sub{font-size:0.9rem; color:var(--ink-soft); margin-bottom:8px;}
-  .t-meta{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.76rem;
-    color:var(--teal);
-    background:#EAF7F5;
-    display:inline-block;
-    padding:4px 10px;
-    border-radius:999px;
-  }
+    .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--coral-deep);
+      font-weight: 600;
+    }
 
-  /* ===== TICKET STUBS (Work Experience) ===== */
-  .stub{
-    display:flex;
-    background:var(--white);
-    border-radius:18px;
-    box-shadow:var(--shadow);
-    border:1px solid var(--paper-line);
-    margin-bottom:28px;
-    overflow:hidden;
-  }
-  .stub-date{
-    background:var(--ink);
-    color:var(--white);
-    width:130px;
-    flex-shrink:0;
-    padding:24px 16px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.72rem;
-    line-height:1.5;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    position:relative;
-    text-align:center;
-  }
-  .stub-date::after{
-    content:"";
-    position:absolute;
-    right:-1px; top:0; bottom:0;
-    width:1px;
-    background-image:linear-gradient(var(--paper) 50%, transparent 0%);
-    background-size:2px 12px;
-    background-repeat:repeat-y;
-  }
-  .stub-date .stub-tag{
-    font-size:0.62rem;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:var(--gold);
-    margin-bottom:6px;
-    font-weight:600;
-  }
-  .stub-content{
-    padding:24px 26px;
-    flex:1;
-  }
-  .stub-content h3{font-size:1.2rem; margin-bottom:2px;}
-  .stub-company{
-    font-size:0.9rem;
-    color:var(--coral-deep);
-    font-weight:600;
-    margin-bottom:10px;
-  }
-  .stub-desc{
-    font-style:italic;
-    font-family:'Fraunces', serif;
-    font-size:1rem;
-    color:var(--ink-soft);
-    margin-bottom:12px;
-    border-left:3px solid var(--gold);
-    padding-left:12px;
-  }
-  .stub-content ul{
-    padding-left:18px;
-    font-size:0.92rem;
-    color:var(--ink-soft);
-  }
-  .stub-content li{margin-bottom:5px;}
+    /* =========================================================
+       ACCESSIBILITY / MOTION
+    ========================================================= */
 
-  @media (max-width:560px){
-    .stub{flex-direction:column;}
-    .stub-date{width:100%; flex-direction:row; justify-content:space-between; padding:14px 20px;}
-    .stub-date::after{display:none;}
-  }
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
 
-  /* ===== INVOLVEMENT CARDS ===== */
-  .involve-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-    gap:20px;
-  }
-  .involve-card{
-    background:var(--white);
-    border:1px solid var(--paper-line);
-    border-radius:16px;
-    padding:22px 24px;
-    box-shadow:var(--shadow);
-    position:relative;
-  }
-  .involve-card .eyebrow{margin-bottom:8px; display:block;}
-  .involve-card h3{font-size:1.1rem; margin-bottom:2px;}
-  .involve-card .stub-company{margin-bottom:10px;}
-  .involve-card ul{padding-left:18px; font-size:0.9rem; color:var(--ink-soft);}
-  .involve-card li{margin-bottom:5px;}
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
 
-  .gallery{
-    display:flex;
-    gap:14px;
-    margin-top:30px;
-    flex-wrap:wrap;
-  }
-  .gallery .photo-slot
-  {height:160px; flex:1 1 160px;}
-  
-/* ===== FREE TIME ===== */
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
 
-.free-time-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-}
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
 
-.free-time-card {
-  display: block;
-  padding-bottom: 20px;
-}
+      background: rgba(251, 243, 231, 0.92);
+      backdrop-filter: blur(10px);
 
-.free-time-icon {
-  font-size: 1.8rem;
-  margin-bottom: 8px;
-}
+      border-bottom: 1px solid var(--paper-line);
+    }
 
-.free-time-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
-}
+    .nav-inner {
+      max-width: 920px;
+      margin: 0 auto;
 
-.free-time-card p {
-  color: var(--ink-soft);
-  font-size: 1rem;
-  margin-bottom: 18px;
-  max-width: 800px;
-}
+      padding: 14px 28px;
 
-/* Photos inside Free Time */
-.free-time-card .photo-row {
-  display: flex;
-  flex-wrap: nowwrap;
-  gap: 10px;
-  margin-top: 18px;
-  align-items: flex-start;
-}
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-.free-time-card .photo-slot {
-  display: inline-block;
-  width: 48%;
-  height: 240px;
-  margin: 0 1% 0 0;
-  padding: 0;
-  border: none;
-  background: transparent;
-  border-radius: 14px;
-  overflow: hidden;
-  vertical-align: top;
-}
+      gap: 16px;
+    }
 
-.free-time-card .photo-slot + .photo-slot {
-  margin-top: 20px;
-}
-.free-time-card .photo-slot img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 14px;
-}
-  
-  /* ===== SKILLS ===== */
-  .skills-block{margin-bottom:30px;}
-  .skills-block h3{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.8rem;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--ink-soft);
-    margin-bottom:14px;
-    font-weight:600;
-  }
-  .chip-row{display:flex; flex-wrap:wrap; gap:10px;}
-  .chip{
-    padding:9px 16px;
-    border-radius:999px;
-    font-size:0.88rem;
-    font-weight:600;
-    border:1.5px solid transparent;
-  }
-  .chip.coral{background:#FFEDEE; color:var(--coral-deep); border-color:#FFD2D8;}
-  .chip.gold{background:#FFF3DC; color:#9A6A0A; border-color:#FFE0A3;}
-  .chip.teal{background:#E5F6F4; color:#0F6E64; border-color:#BEE9E4;}
+    .nav-brand {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      white-space: nowrap;
+    }
 
-  footer{
-    padding:60px 0 50px;
-    text-align:center;
-  }
-  footer .eyebrow{display:block; margin-bottom:10px;}
-  footer h2{font-size:1.6rem; margin-bottom:14px;}
-  footer .pass-contact{justify-content:center;}
-  footer .fine{
-    margin-top:34px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.7rem;
-    color:var(--ink-soft);
-    opacity:0.6;
-  }
+    .nav-brand span {
+      color: var(--coral-deep);
+    }
 
-</section>
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
 
-</style>
+    .nav-links button {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+
+      background: transparent;
+      border: 1.5px solid var(--paper-line);
+
+      color: var(--ink-soft);
+
+      padding: 8px 14px;
+      border-radius: 999px;
+
+      cursor: pointer;
+
+      transition: all 0.25s ease;
+
+      font-weight: 600;
+    }
+
+    .nav-links button:hover,
+    .nav-links button:focus-visible {
+      border-color: var(--coral);
+      color: var(--coral-deep);
+      background: #FFF6F3;
+      outline: none;
+    }
+
+    .nav-links button.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--white);
+    }
+
+    .nav-toggle {
+      display: none;
+
+      background: var(--ink);
+      color: var(--white);
+
+      border: none;
+
+      width: 38px;
+      height: 38px;
+
+      border-radius: 10px;
+
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       SECTIONS
+    ========================================================= */
+
+    section {
+      padding: 110px 0 40px;
+    }
+
+    #about {
+      padding-top: 150px;
+    }
+
+    .section-head {
+      margin-bottom: 30px;
+    }
+
+    #free-time .section-head {
+      margin-bottom: 15px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      margin-top: 6px;
+    }
+
+    /* =========================================================
+       REVEAL ANIMATION
+    ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       HERO / ABOUT
+    ========================================================= */
+
+    .pass {
+      background: var(--white);
+
+      border-radius: 26px;
+
+      box-shadow: var(--shadow);
+
+      padding: 0;
+
+      overflow: hidden;
+
+      position: relative;
+
+      border: 1px solid var(--paper-line);
+    }
+
+    .pass-top {
+      background:
+        linear-gradient(
+          120deg,
+          var(--coral) 0%,
+          var(--coral-deep) 55%,
+          #2F8FA8 100%
+        );
+
+      padding: 34px 36px 60px;
+
+      color: var(--ink);
+
+      position: relative;
+    }
+
+    .pass-top::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: -1px;
+
+      height: 34px;
+
+      background:
+        radial-gradient(
+          circle at 24px 0,
+          transparent 15px,
+          var(--white) 16px
+        )
+        repeat-x;
+
+      background-size: 48px 34px;
+    }
+
+    .pass-name {
+      font-family: 'Fraunces', serif;
+
+      font-size: clamp(2.1rem, 6vw, 3.4rem);
+
+      font-weight: 800;
+
+      line-height: 1.02;
+
+      color: var(--ink);
+    }
+
+    .pass-role {
+      font-family: 'Fraunces', serif;
+
+      font-style: italic;
+
+      font-weight: 600;
+
+      font-size: 1.15rem;
+
+      margin-top: 10px;
+
+      opacity: 0.95;
+    }
+
+    .pass-body {
+      padding: 44px 36px 40px;
+
+      display: flex;
+
+      gap: 32px;
+
+      align-items: flex-start;
+
+      flex-wrap: wrap;
+    }
+
+    .pass-photo {
+      width: 150px;
+      height: 150px;
+
+      border-radius: 20px;
+
+      flex-shrink: 0;
+
+      background:
+        linear-gradient(
+          145deg,
+          #FFE8D6,
+          #FFD3DB
+        );
+
+      border: 2px dashed var(--coral);
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      font-family: 'IBM Plex Mono', monospace;
+
+      font-size: 0.68rem;
+
+      color: var(--coral-deep);
+
+      padding: 10px;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .pass-photo img {
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: none;
+    }
+
+    .pass-bio {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .pass-bio p {
+      max-width: 480px;
+
+      color: var(--ink-soft);
+
+      font-size: 1.02rem;
+    }
+
+    .pass-contact {
+      display: flex;
+
+      gap: 10px;
+
+      flex-wrap: wrap;
+
+      margin-top: 18px;
+    }
+
+    .pass-contact a {
+      font-family: 'IBM Plex Mono', monospace;
+
+      font-size: 0.75rem;
+
+      background: var(--paper-dim);
+
+      border: 1px solid var(--paper-line);
+
+      padding: 8px 14px;
+
+      border-radius: 999px;
+
+      color: var(--ink);
+
+      transition: all 0.2s ease;
+    }
+
+    .pass-contact a:hover {
+      background: var(--gold);
+
+      border-color: var(--gold);
+
+      color: var(--ink);
+    }
+
+    /* =========================================================
+       EDUCATION TIMELINE
+    ========================================================= */
+
+    .timeline {
+      position: relative;
+
+      padding-left: 28px;
+
+      border-left: 2px solid var(--paper-line);
+    }
+
+    .t-item {
+      position: relative;
+
+      padding-bottom: 30px;
+    }
+
+    .t-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .t-item::before {
+      content: "";
+
+      position: absolute;
+
+      left: -34px;
+
+      top: 4px;
+
+      width: 12px;
+      height: 12px;
+
+      border-radius: 50%;
+
+      background: var(--coral);
+
+      border: 3px solid var(--paper);
+
+      box-shadow:
+        0 0 0 2px var(--coral);
+    }
+
+    .t-card {
+      background: var(--white);
+
+      border: 1px solid var(--paper-line);
+
+      border-radius: 16px;
+
+      padding: 20px 24px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .t-date {
+      font-family: 'IBM Plex Mono', monospace;
+
+      font-size: 0.72rem;
+
+      color: var(--coral-deep);
+
+      letter-spacing: 0.05em;
+
+      font-weight: 600;
+
+      margin-bottom: 6px;
+    }
+
+    .t-card h3 {
+      font-size: 1.15rem;
+
+      margin-bottom: 4px;
+    }
+
+    .t-sub {
+      font-size: 0.9rem;
+
+      color: var(--ink-soft);
+
+      margin-bottom: 8px;
+    }
+
+    .t-meta {
+      font-family: 'IBM Plex Mono', monospace;
+
+      font-size: 0.76rem;
+
+      color: var(--teal);
+
+      background: #EAF7F5;
+
+      display: inline-block;
+
+      padding: 4px 10px;
+
+      border-radius: 999px;
+    }
+
+    /* =========================================================
+       WORK EXPERIENCE
+    ========================================================= */
+
+    .stub {
+      display: flex;
+
+      background: var(--white);
+
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+
+      border: 1px solid var(--paper-line);
+
+      margin-bottom: 28px;
+
+      overflow: hidden;
+    }
+
+    .stub-date {
+      background: var(--ink);
+
+      color: var(--white);
+
+      width: 130px;
+
+      flex-shrink: 0;
+
+      padding: 24px 16px;
+
+      font-family: 'IBM Plex Mono', monospace;
+
+      font-size: 0.72rem;
+
+      line-height: 1.5;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      position: relative;
+
+      text-align: center;
+    }
+
+    .stub-date::after {
+      content: "";
+
+      position: absolute;
+
+      right: -1px;
+
+      top: 0;
+      bottom: 0;
+
+      width: 1px;
+
+      background-image:
+        linear-gradient(
+          var(--paper) 50%,
+          transparent 0%
+        );
+
+      background-size: 2px 12px;
+
+      background-repeat: repeat-y;
+    }
+
+    .stub-content {
+      padding: 24px 26px;
+
+      flex: 1;
+    }
+
+    .stub-content h3 {
+      font-size: 1.2rem;
+
+      margin-bottom: 2px;
+    }
+
+    .stub-company {
+      font-size: 0.9rem;
+
+      color: var(--coral-deep);
+
+      font-weight: 600;
+
+      margin-bottom: 10px;
+    }
+
+    .stub-desc {
+      font-style: italic;
+
+      font-family: 'Fraunces', serif;
+
+      font-size: 1rem;
+
+      color: var(--ink-soft);
+
+      margin-bottom: 12px;
+
+      border-left: 3px solid var(--gold);
+
+      padding-left: 12px;
+    }
+
+    .stub-content ul {
+      padding-left: 18px;
+
+      font-size: 0.92rem;
+
+      color: var(--ink-soft);
+    }
+
+    .stub-content li {
+      margin-bottom: 5px;
+    }
+
+    /* =========================================================
+       INVOLVEMENT
+    ========================================================= */
+
+    .involve-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(260px, 1fr)
+        );
+
+      gap: 20px;
+    }
+
+    .involve-card {
+      background: var(--white);
+
+      border: 1px solid var(--paper-line);
+
+      border-radius: 16px;
+
+      padding: 22px 24px;
+
+      box-shadow: var(--shadow);
+
+      position: relative;
+    }
+
+    .involve-card .eyebrow {
+      margin-bottom: 8px;
+
+      display: block;
+    }
+
+    .involve-card h3 {
+      font-size: 1.1rem;
+
+      margin-bottom: 2px;
+    }
+
+    .involve-card .stub-company {
+      margin-bottom: 10px;
+    }
+
+    .involve-card ul {
+      padding-left: 18px;
+
+      font-size: 0.9rem;
+
+      color: var(--ink-soft);
+    }
+
+    .involve-card li {
+      margin-bottom: 5px;
+    }
+
+    /* =========================================================
+       INVOLVEMENT GALLERY
+    ========================================================= */
+
+    .gallery {
+      display: flex;
+
+      gap: 14px;
+
+      margin-top: 30px;
+
+      flex-wrap: wrap;
+    }
+
+    .gallery .photo-slot {
+      height: 160px;
+
+      flex: 1 1 160px;
+
+      border-radius: 14px;
+
+      background: var(--paper-dim);
+
+      border: 2px dashed var(--paper-line);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .gallery .photo-slot img {
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+    }
+
+    /* =========================================================
+       FREE TIME
+    ========================================================= */
+
+    .free-time-grid {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 60px;
+    }
+
+    .free-time-card {
+      display: block;
+
+      padding-bottom: 20px;
+    }
+
+    .free-time-icon {
+      font-size: 1.8rem;
+
+      margin-bottom: 8px;
+    }
+
+    .free-time-card h3 {
+      font-size: 1.5rem;
+
+      margin-bottom: 8px;
+    }
+
+    .free-time-card p {
+      color: var(--ink-soft);
+
+      font-size: 1rem;
+
+      margin-bottom: 18px;
+
+      max-width: 800px;
+    }
+
+    /* Free Time photo row */
+
+    .free-time-card .photo-row {
+      display: flex;
+
+      flex-wrap: nowrap;
+
+      gap: 10px;
+
+      margin-top: 18px;
+
+      align-items: flex-start;
+
+      width: 100%;
+    }
+
+    .free-time-card .photo-slot {
+      flex: 1 1 0;
+
+      width: 50%;
+
+      height: 240px;
+
+      margin: 0;
+
+      padding: 0;
+
+      border: none;
+
+      background: transparent;
+
+      border-radius: 14px;
+
+      overflow: hidden;
+
+      position: relative;
+    }
+
+    .free-time-card .photo-slot img {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+
+      border-radius: 14px;
+    }
+
+    /* =========================================================
+       SKILLS
+    ========================================================= */
+
+    .skills-block {
+      margin-bottom: 30px;
+    }
+
+    .skills-block h3 {
+      font-family: 'IBM Plex Mono', monospace;
+
+      font-size: 0.8rem;
+
+      letter-spacing: 0.08em;
+
+      text-transform: uppercase;
+
+      color: var(--ink-soft);
+
+      margin-bottom: 14px;
+
+      font-weight: 600;
+    }
+
+    .chip-row {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 9px 16px;
+
+      border-radius: 999px;
+
+      font-size: 0.88rem;
+
+      font-weight: 600;
+
+      border: 1.5px solid transparent;
+    }
+
+    .chip.coral {
+      background: #FFEDEE;
+
+      color: var(--coral-deep);
+
+      border-color: #FFD2D8;
+    }
+
+    .chip.gold {
+      background: #FFF3DC;
+
+      color: #9A6A0A;
+
+      border-color: #FFE0A3;
+    }
+
+    .chip.teal {
+      background: #E5F6F4;
+
+      color: #0F6E64;
+
+      border-color: #BEE9E4;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      padding: 60px 0 50px;
+
+      text-align: center;
+    }
+
+    footer .eyebrow {
+      display: block;
+
+      margin-bottom: 10px;
+    }
+
+    footer h2 {
+      font-size: 1.6rem;
+
+      margin-bottom: 14px;
+    }
+
+    footer .pass-contact {
+      justify-content: center;
+    }
+
+    footer .fine {
+      margin-top: 34px;
+
+      font-family: 'IBM Plex Mono', monospace;
+
+      font-size: 0.7rem;
+
+      color: var(--ink-soft);
+
+      opacity: 0.6;
+    }
+
+    /* =========================================================
+       TABLET / MOBILE
+    ========================================================= */
+
+    @media (max-width: 720px) {
+
+      .nav-links {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        background: var(--paper);
+
+        border-bottom: 1px solid var(--paper-line);
+
+        flex-direction: column;
+
+        padding: 10px 28px 18px;
+
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links button {
+        width: 100%;
+
+        text-align: left;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .pass-body {
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 560px) {
+
+      .wrap {
+        padding: 0 18px;
+      }
+
+      section {
+        padding: 90px 0 30px;
+      }
+
+      #about {
+        padding-top: 120px;
+      }
+
+      .pass-top {
+        padding: 30px 24px 55px;
+      }
+
+      .pass-body {
+        padding: 35px 24px 30px;
+
+        flex-direction: column;
+      }
+
+      .pass-photo {
+        width: 130px;
+        height: 130px;
+      }
+
+      .stub {
+        flex-direction: column;
+      }
+
+      .stub-date {
+        width: 100%;
+
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        padding: 14px 20px;
+      }
+
+      .stub-date::after {
+        display: none;
+      }
+
+      /*
+        On smaller screens, allow the two photos
+        to stack so they don't become too tiny.
+      */
+
+      .free-time-card .photo-row {
+        flex-direction: column;
+
+        gap: 14px;
+      }
+
+      .free-time-card .photo-slot {
+        width: 100%;
+
+        height: 280px;
+      }
+
+      .gallery {
+        flex-direction: column;
+      }
+
+      .gallery .photo-slot {
+        width: 100%;
+      }
+    }
+
+  </style>
 </head>
+
+
 <body>
 
-<nav class="nav-bar">
-  <div class="nav-inner">
-    <div class="nav-brand">Kah Min <span>Yap</span></div>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
-    <div class="nav-links" id="navLinks">
-      <button data-target="about">About Me</button>
-      <button data-target="education">Education</button>
-      <button data-target="work">Work Experience</button>
-      <button data-target="involvement">Involvement</button>
-      <button data-target="skills">Skills</button>
-      <button data-target="free-time">My Free Time</button>
-    </div>
-  </div>
-</nav>
+  <!-- =========================================================
+       NAVIGATION
+  ========================================================= -->
 
-<div class="wrap">
+  <nav class="nav-bar">
 
-  <!-- ABOUT ME -->
-  <section id="about" class="reveal">
-    <div class="pass">
-      <div class="pass-top">
-        <div class="pass-name">Yap Kah Min</div>
-        <div class="pass-role">Event &amp; Program Coordinator — Psychology Grad</div>
+    <div class="nav-inner">
+
+      <div class="nav-brand">
+        Kah Min <span>Yap</span>
       </div>
-      <div class="pass-body">
-        <div class="pass-photo">
-          <img src="profile.jpeg" alt="Yap Kah Min" onload="this.style.display='block'; this.parentElement.style.border='none'; this.nextElementSibling.style.display='none';">
-          <span>📸 Add<br><strong>profile.jpeg</strong><br>here</span>
-        </div>
-        <div class="pass-bio">
-          <p> An event-focused Psychology graduate, happiest when I'm on the ground. Psychology taught me to understand people; events let me turn that understanding into experiences that bring them together. 
-            I love working behind the scenes to create moments people genuinely enjoy — and beyond work, I'm always exploring new ideas, new places, and hoping to leave a little positivity behind
-</p>
-          <div class="pass-contact">
-            <a href="mailto:carmenyap0907@gmail.com">✉ carmenyap0907@gmail.com</a>
-            <a href="https://www.linkedin.com/in/yap-kah-min-095793265" target="_blank" rel="noopener">🔗 LinkedIn </a>
-            <a href="https://wa.me/60197796761" target="_blank" rel="noopener">📱 WhatsApp </a>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-label="Toggle navigation"
+      >
+        ☰
+      </button>
+
+      <div class="nav-links" id="navLinks">
+
+        <button data-target="about">
+          About Me
+        </button>
+
+        <button data-target="education">
+          Education
+        </button>
+
+        <button data-target="work">
+          Work Experience
+        </button>
+
+        <button data-target="involvement">
+          Involvement
+        </button>
+
+        <button data-target="skills">
+          Skills
+        </button>
+
+        <button data-target="free-time">
+          My Free Time
+        </button>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <div class="wrap">
+
+    <!-- =======================================================
+         ABOUT ME
+    ======================================================== -->
+
+    <section id="about" class="reveal">
+
+      <div class="pass">
+
+        <div class="pass-top">
+
+          <div class="pass-name">
+            Yap Kah Min
           </div>
+
+          <div class="pass-role">
+            Event &amp; Program Coordinator — Psychology Grad
+          </div>
+
         </div>
-      </div>
-    </div>
 
-  
-  </section>
 
-  <!-- EDUCATION -->
-  <section id="education" class="reveal">
-    <div class="section-head">
-      <span class="eyebrow">01 · The Backstory</span>
-      <h2>Education</h2>
-    </div>
-    <div class="timeline">
-      <div class="t-item">
-        <div class="t-card">
-          <div class="t-date">Jan 2022 – Dec 2024</div>
-          <h3>Bachelor of Psychology (Honors)</h3>
-          <div class="t-sub">HELP University</div>
-          <span class="t-meta">HGPA 3.95 · CGPA 3.8 · Study Award Achiever</span>
+        <div class="pass-body">
+
+          <div class="pass-photo">
+
+            <img
+              src="profile.jpeg"
+              alt="Yap Kah Min"
+              onload="
+                this.style.display='block';
+                this.parentElement.style.border='none';
+                this.nextElementSibling.style.display='none';
+              "
+            >
+
+            <span>
+              📸 Add<br>
+              <strong>profile.jpeg</strong><br>
+              here
+            </span>
+
+          </div>
+
+
+          <div class="pass-bio">
+
+            <p>
+              An event-focused Psychology graduate, happiest when I'm on the
+              ground. Psychology taught me to understand people; events let me
+              turn that understanding into experiences that bring them together.
+              I love working behind the scenes to create moments people genuinely
+              enjoy — and beyond work, I'm always exploring new ideas, new places,
+              and hoping to leave a little positivity behind.
+            </p>
+
+
+            <div class="pass-contact">
+
+              <a href="mailto:carmenyap0907@gmail.com">
+                ✉ carmenyap0907@gmail.com
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/yap-kah-min-095793265"
+                target="_blank"
+                rel="noopener"
+              >
+                🔗 LinkedIn
+              </a>
+
+              <a
+                href="https://wa.me/60197796761"
+                target="_blank"
+                rel="noopener"
+              >
+                📱 WhatsApp
+              </a>
+
+            </div>
+
+          </div>
+
         </div>
+
       </div>
-      <div class="t-item">
-        <div class="t-card">
-          <div class="t-date">Sept 2020 – Sept 2021</div>
-          <h3>Foundation in Arts</h3>
-          <div class="t-sub">HELP University</div>
-          <span class="t-meta">CGPA 3.5</span>
+
+    </section>
+
+
+    <!-- =======================================================
+         EDUCATION
+    ======================================================== -->
+
+    <section id="education" class="reveal">
+
+      <div class="section-head">
+
+        <span class="eyebrow">
+          01 · The Backstory
+        </span>
+
+        <h2>
+          Education
+        </h2>
+
+      </div>
+
+
+      <div class="timeline">
+
+        <div class="t-item">
+
+          <div class="t-card">
+
+            <div class="t-date">
+              Jan 2022 – Dec 2024
+            </div>
+
+            <h3>
+              Bachelor of Psychology (Honors)
+            </h3>
+
+            <div class="t-sub">
+              HELP University
+            </div>
+
+            <span class="t-meta">
+              HGPA 3.95 · CGPA 3.8 · Study Award Achiever
+            </span>
+
+          </div>
+
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- WORK EXPERIENCE -->
-  <section id="work" class="reveal">
-    <div class="section-head">
-      <span class="eyebrow">02 · On The Job</span>
-      <h2>Work Experience</h2>
-    </div>
 
-    <div class="stub">
-      <div class="stub-date">
-        Apr 2025 –<br>Jun 2026
-      </div>
-      <div class="stub-content">
-        <h3>Fitness Coordinator</h3>
-        <div class="stub-company">Team Axis Pte. Ltd</div>
-        <p class="stub-desc">The person behind the scenes making sure over 1000 fitness sessions ran on time — part scheduler, part problem-solver </p>
-     <ul>
-        <li>Coordinated and managed scheduling for over 1,000 fitness sessions </li>
-        <li>Handled complaints from different parties,and facilitating appropriate resolutions to resolve conflict or dissatisfaction</li>
-       <li>Developed strong coordination, problem-solving, and operational support skills in a high-volume environment</li>
-        </ul>
-      </div>
-    </div>
+        <div class="t-item">
 
-    <div class="stub">
-      <div class="stub-date">
-        Aug 2022 –<br>Aug 2024
-      </div>
-      <div class="stub-content">
-        <h3>Peer Tutor</h3>
-        <div class="stub-company">HELP University</div>
-        <p class="stub-desc">Turned tricky concepts into lightbulb moments for small groups of students, one session at a time. </p>
-        <ul>
-          <li>Conducted tutoring sessions with small groups, focusing on clear communication and structured delivery</li>
-          <li>Strengthened presentation, facilitation, and audience management skills</li>
-        </ul>
-      </div>
-    </div>
+          <div class="t-card">
 
-    <div class="stub">
-      <div class="stub-date">
-        May 2023 –<br>Aug 2023
-      </div>
-      <div class="stub-content">
-        <h3>Human resource intern</h3>
-        <div class="stub-company">TDCX Malaysia</div>
-        <p class="stub-desc">A crash course in corporate-scale coordination — from recruitment support to running a 100+ person townhall.</p>
-        <ul>
-          <li>Assisted supervisor in enhancing the recruiting process</li>
-          <li>Organized, supported and hosted different company activities such as a townhall with 100+ employees across different countries. </li>
-          <li>Helped with logistics preparation and on-site coordination to ensure smooth event flow</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+            <div class="t-date">
+              Sept 2020 – Sept 2021
+            </div>
 
-<!-- INVOLVEMENT -->
-<section id="involvement" class="reveal">
-  <div class="section-head">
-    <span class="eyebrow">03 · Beyond The Classroom</span>
-    <h2>Involvement</h2>
+            <h3>
+              Foundation in Arts
+            </h3>
+
+            <div class="t-sub">
+              HELP University
+            </div>
+
+            <span class="t-meta">
+              CGPA 3.5
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         WORK EXPERIENCE
+    ======================================================== -->
+
+    <section id="work" class="reveal">
+
+      <div class="section-head">
+
+        <span class="eyebrow">
+          02 · On The Job
+        </span>
+
+        <h2>
+          Work Experience
+        </h2>
+
+      </div>
+
+
+      <!-- FITNESS COORDINATOR -->
+
+      <div class="stub">
+
+        <div class="stub-date">
+          Apr 2025 –<br>
+          Jun 2026
+        </div>
+
+        <div class="stub-content">
+
+          <h3>
+            Fitness Coordinator
+          </h3>
+
+          <div class="stub-company">
+            Team Axis Pte. Ltd
+          </div>
+
+          <p class="stub-desc">
+            The person behind the scenes making sure over 1000 fitness
+            sessions ran on time — part scheduler, part problem-solver.
+          </p>
+
+          <ul>
+
+            <li>
+              Coordinated and managed scheduling for over 1,000 fitness sessions
+            </li>
+
+            <li>
+              Handled complaints from different parties, and facilitated
+              appropriate resolutions to resolve conflict or dissatisfaction
+            </li>
+
+            <li>
+              Developed strong coordination, problem-solving, and operational
+              support skills in a high-volume environment
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <!-- PEER TUTOR -->
+
+      <div class="stub">
+
+        <div class="stub-date">
+          Aug 2022 –<br>
+          Aug 2024
+        </div>
+
+        <div class="stub-content">
+
+          <h3>
+            Peer Tutor
+          </h3>
+
+          <div class="stub-company">
+            HELP University
+          </div>
+
+          <p class="stub-desc">
+            Turned tricky concepts into lightbulb moments for small groups
+            of students, one session at a time.
+          </p>
+
+          <ul>
+
+            <li>
+              Conducted tutoring sessions with small groups, focusing on
+              clear communication and structured delivery
+            </li>
+
+            <li>
+              Strengthened presentation, facilitation, and audience
+              management skills
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <!-- HUMAN RESOURCE INTERN -->
+
+      <div class="stub">
+
+        <div class="stub-date">
+          May 2023 –<br>
+          Aug 2023
+        </div>
+
+        <div class="stub-content">
+
+          <h3>
+            Human Resource Intern
+          </h3>
+
+          <div class="stub-company">
+            TDCX Malaysia
+          </div>
+
+          <p class="stub-desc">
+            A crash course in corporate-scale coordination — from recruitment
+            support to running a 100+ person townhall.
+          </p>
+
+          <ul>
+
+            <li>
+              Assisted supervisor in enhancing the recruiting process
+            </li>
+
+            <li>
+              Organized, supported and hosted different company activities
+              such as a townhall with 100+ employees across different countries
+            </li>
+
+            <li>
+              Helped with logistics preparation and on-site coordination
+              to ensure smooth event flow
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         INVOLVEMENT
+    ======================================================== -->
+
+    <section id="involvement" class="reveal">
+
+      <div class="section-head">
+
+        <span class="eyebrow">
+          03 · Beyond The Classroom
+        </span>
+
+        <h2>
+          Involvement
+        </h2>
+
+      </div>
+
+
+      <div class="involve-grid">
+
+
+        <!-- PEDALS ACADEMY -->
+
+        <div class="involve-card">
+
+          <span class="eyebrow">
+            2021 – 2024
+          </span>
+
+          <h3>
+            Program Team &amp; Certified Facilitator
+          </h3>
+
+          <div class="stub-company">
+            Pedals Academy
+          </div>
+
+          <ul>
+
+            <li>
+              I am a trainer, a facilitator, a module creator. Under guidance
+              and opportunity given, I got to try different roles.
+            </li>
+
+            <li>
+              We usually conduct physical and virtual workshops, camps,
+              corporate, team bonding... from brainstorming to executing.
+            </li>
+
+          </ul>
+
+
+          <div class="gallery">
+
+            <div class="photo-slot">
+
+              <img
+                src="event-1.jpeg"
+                alt="Pedals Academy event photo"
+              >
+
+            </div>
+
+
+            <div class="photo-slot">
+
+              <img
+                src="event-2.jpeg"
+                alt="Pedals Academy event photo"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- G MAJOR -->
+
+        <div class="involve-card">
+
+          <span class="eyebrow">
+            2022 – 2024
+          </span>
+
+          <h3>
+            Program Team Head
+          </h3>
+
+          <div class="stub-company">
+            G Major (Music Club) @ HELP University
+          </div>
+
+          <ul>
+
+            <li>
+              From zero to showtime - a live concert with 200+ audiences,
+              coordinated venue setup and equipment, schedules and flows,
+              and on-ground operations.
+            </li>
+
+            <li>
+              From front-row action to the final cut — I’ve also dabbled
+              in filming and editing concert content.
+            </li>
+
+            <li>
+              Creating spaces for people who love music — bonding nights
+              and open mic sessions.
+            </li>
+
+          </ul>
+
+
+          <div class="gallery">
+
+            <div class="photo-slot">
+
+              <img
+                src="event-3.jpeg"
+                alt="G Major music event photo"
+              >
+
+            </div>
+
+
+            <div class="photo-slot">
+
+              <img
+                src="event-4.jpeg"
+                alt="G Major music event photo"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PORCUPINE CLUB -->
+
+        <div class="involve-card">
+
+          <span class="eyebrow">
+            2022 – 2023
+          </span>
+
+          <h3>
+            Program Team Head
+          </h3>
+
+          <div class="stub-company">
+            Porcupine Club (Badminton) @ HELP University
+          </div>
+
+          <ul>
+
+            <li>
+              Planned and managed club tournaments for 100+ participants
+            </li>
+
+            <li>
+              Oversaw logistics and stakeholder collaboration
+            </li>
+
+          </ul>
+
+
+          <div class="gallery">
+
+            <div class="photo-slot">
+
+              <img
+                src="event-5.jpeg"
+                alt="Porcupine Club badminton event photo"
+              >
+
+            </div>
+
+
+            <div class="photo-slot">
+
+              <img
+                src="event-6.jpeg"
+                alt="Porcupine Club badminton event photo"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         SKILLS
+    ======================================================== -->
+
+    <section id="skills" class="reveal">
+
+      <div class="section-head">
+
+        <span class="eyebrow">
+          04 · The Toolkit
+        </span>
+
+        <h2>
+          Skills
+        </h2>
+
+      </div>
+
+
+      <div class="skills-block">
+
+        <h3>
+          Languages
+        </h3>
+
+        <div class="chip-row">
+
+          <span class="chip coral">
+            Mandarin
+          </span>
+
+          <span class="chip coral">
+            English
+          </span>
+
+          <span class="chip coral">
+            Cantonese
+          </span>
+
+          <span class="chip coral">
+            Bahasa Melayu
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="skills-block">
+
+        <h3>
+          Tools &amp; Software
+        </h3>
+
+        <div class="chip-row">
+
+          <span class="chip teal">
+            Microsoft Excel
+          </span>
+
+          <span class="chip teal">
+            PowerPoint
+          </span>
+
+          <span class="chip teal">
+            Microsoft Word
+          </span>
+
+          <span class="chip teal">
+            Canva
+          </span>
+
+          <span class="chip teal">
+            SPSS
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         FREE TIME
+    ======================================================== -->
+
+    <section id="free-time" class="reveal">
+
+      <div class="section-head">
+
+        <span class="eyebrow">
+          05 · Outside The Schedule
+        </span>
+
+        <h2>
+          When I'm Not Working
+        </h2>
+
+      </div>
+
+
+      <div class="free-time-grid">
+
+
+        <!-- FITNESS -->
+
+        <div class="free-time-card">
+
+          <div class="free-time-icon">
+            🏋️
+          </div>
+
+          <h3>
+            Fitness
+          </h3>
+
+          <p>
+            Keeping active, challenging myself, and enjoying the little
+            progress along the way.
+          </p>
+
+
+          <div class="photo-row">
+
+            <div class="photo-slot">
+
+              <img
+                src="fitness-1.jpg"
+                alt="Fitness"
+              >
+
+            </div>
+
+
+            <div class="photo-slot">
+
+              <img
+                src="fitness-2.jpeg"
+                alt="Fitness"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PHOTOGRAPHY -->
+
+        <div class="free-time-card">
+
+          <div class="free-time-icon">
+            📸
+          </div>
+
+          <h3>
+            Photography &amp; Filming
+          </h3>
+
+          <p>
+            I enjoy capturing moments, filming events, and experimenting
+            with video editing and creative storytelling.
+          </p>
+
+
+          <div class="photo-row">
+
+            <div class="photo-slot">
+
+              <img
+                src="photography-1.jpeg"
+                alt="Photography"
+              >
+
+            </div>
+
+
+            <div class="photo-slot">
+
+              <img
+                src="photography-2.jpeg"
+                alt="Photography"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- TRAVEL -->
+
+        <div class="free-time-card">
+
+          <div class="free-time-icon">
+            ✈️
+          </div>
+
+          <h3>
+            Travelling
+          </h3>
+
+          <p>
+            Exploring new places, discovering new experiences, and
+            collecting little stories along the way.
+          </p>
+
+
+          <div class="photo-row">
+
+            <div class="photo-slot">
+
+              <img
+                src="travel-1.jpeg"
+                alt="Travel"
+              >
+
+            </div>
+
+
+            <div class="photo-slot">
+
+              <img
+                src="travel-2.jpeg"
+                alt="Travel"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- JAPANESE -->
+
+        <div class="free-time-card">
+
+          <div class="free-time-icon">
+            🇯🇵
+          </div>
+
+          <h3>
+            Learning Japanese
+          </h3>
+
+          <p>
+            Currently learning Japanese through Duolingo — one lesson,
+            one streak, and one new word at a time.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
   </div>
 
-  <div class="involve-grid">
 
-    <!-- PEDALS ACADEMY -->
-    <div class="involve-card">
-      <span class="eyebrow">2021 – 2024</span>
-      <h3>Program Team &amp; Certified Facilitator</h3>
-      <div class="stub-company">Pedals Academy</div>
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
 
-      <ul>
-        <li> I am a trainer, a facilitator, a module creator. Under guidance and opportunity given, I got to try different roles. </li>
-        <li> We usually conduct physical and virtual workshops, camps, corporate, team bonding... from brainstorming to executing </li>
-      </ul>
+  <footer class="reveal">
 
-      <div class="gallery">
-        <div class="photo-slot">
-          <img src="event-1.jpeg" alt="Pedals Academy event photo">
-          <span>📸 event-1.jpeg</span>
-        </div>
+    <span class="eyebrow">
+      Let's Work Together
+    </span>
 
-        <div class="photo-slot">
-          <img src="event-2.jpeg" alt="Pedals Academy event photo">
-          <span>📸 event-2.jpeg</span>
-        </div>
-      </div>
+    <h2>
+      Get in touch
+    </h2>
+
+
+    <div class="pass-contact">
+
+      <a href="mailto:carmenyap0907@gmail.com">
+        ✉ carmenyap0907@gmail.com
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/yap-kah-min-095793265"
+        target="_blank"
+        rel="noopener"
+      >
+        🔗 LinkedIn
+      </a>
+
+      <a
+        href="https://wa.me/60197796761"
+        target="_blank"
+        rel="noopener"
+      >
+        📱 WhatsApp
+      </a>
+
     </div>
 
 
-    <!-- G MAJOR -->
-    <div class="involve-card">
-      <span class="eyebrow">2022 – 2024</span>
-      <h3>Program Team Head</h3>
-      <div class="stub-company">G Major (Music Club) @ HELP University</div>
-
-      <ul>
-        <li>From zero to showtime - a live concert with 200+ audiences, coordinated venue setup and equipments, schedules and flows, and on-ground operations </li>
-        <li>From front-row action to the final cut — I’ve also dabbled in filming and editing concert content. </li>
-        <li>Creating spaces to people who love musics — bonding nights and open mic sessions </li>
-        
-      </ul>
-
-      <div class="gallery">
-        <div class="photo-slot">
-          <img src="event-3.jpeg" alt="G Major music event photo">
-          <span>📸 event-3.jpeg</span>
-        </div>
-
-        <div class="photo-slot">
-          <img src="event-4.jpeg" alt="G Major music event photo">
-          <span>📸 event-4.jpeg</span>
-        </div>
-      </div>
+    <div class="fine">
+      Yap Kah Min · Event &amp; Program Coordinator
     </div>
 
-
-    <!-- PORCUPINE CLUB -->
-    <div class="involve-card">
-      <span class="eyebrow">2022 – 2023</span>
-      <h3>Program Team Head</h3>
-      <div class="stub-company">Porcupine Club (Badminton) @ HELP University</div>
-
-      <ul>
-        <li>Planned and managed club tournaments for 100+ participants</li>
-        <li>Oversaw logistics and stakeholder collaboration</li>
-      </ul>
-
-      <div class="gallery">
-        <div class="photo-slot">
-          <img src="event-5.jpeg" alt="Porcupine Club badminton event photo">
-          <span>📸 event-5.jpeg</span>
-        </div>
-
-        <div class="photo-slot">
-          <img src="event-6.jpeg" alt="Porcupine Club badminton event photo">
-          <span>📸 event-6.jpeg</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
+  </footer>
 
 
-  <!-- SKILLS -->
-  <section id="skills" class="reveal">
-    <div class="section-head">
-      <span class="eyebrow">04 · The Toolkit</span>
-      <h2>Skills</h2>
-    </div>
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================= -->
 
-    <div class="skills-block">
-      <h3>Languages</h3>
-      <div class="chip-row">
-        <span class="chip coral">Mandarin</span>
-        <span class="chip coral">English</span>
-        <span class="chip coral">Cantonese</span>
-        <span class="chip coral">Bahasa Melayu</span>
-      </div>
-    </div>
+  <script>
 
-    <div class="skills-block">
-      <h3>Tools &amp; Software</h3>
-      <div class="chip-row">
-        <span class="chip teal">Microsoft Excel</span>
-        <span class="chip teal">PowerPoint</span>
-        <span class="chip teal">Microsoft Word</span>
-        <span class="chip teal">Canva</span>
-        <span class="chip teal">SPSS</span>
-      </div>
-    </div>
-  </section>
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
+    const navButtons =
+      document.querySelectorAll('.nav-links button');
+
+    const sections =
+      Array.from(navButtons).map(
+        button =>
+          document.getElementById(button.dataset.target)
+      );
+
+    const navLinks =
+      document.getElementById('navLinks');
+
+    const navToggle =
+      document.getElementById('navToggle');
 
 
-<!-- FREE TIME -->
-<section id="free-time" class="reveal">
+    navButtons.forEach(button => {
 
-  <div class="section-head">
-    <span class="eyebrow">05 · Outside The Schedule</span>
-    <h2>When I'm Not Working</h2>
-  </div>
+      button.addEventListener('click', () => {
 
-  <div class="free-time-grid">
+        const target =
+          document.getElementById(button.dataset.target);
 
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
 
-  <!-- FITNESS AND SPORTS -->
-    <div class="free-time-card">
-      <div class="free-time-icon">🏋️</div>
-      <div>
-        <h3>Fitness</h3>
-        <p>
-          Keeping active, challenging myself, and enjoying the little
-          progress along the way.
-        </p>
+        navLinks.classList.remove('open');
 
-         <div class="photo-row">
-           
-         <div class="photo-slot">
-          <img src="fitness-1.jpg" alt="fitness">
-  
-        </div>
-      
-      <div class="photo-slot">
-          <img src="fitness-2.jpeg" alt="fitness">
-  
-    </div>
+      });
 
-<p>
-    <!-- PHOTOGRAPHY -->
-    <div class="free-time-card">
-      <div class="free-time-icon">📸</div>
-      <div>
-        <h3>Photography &amp; Filming</h3>
-        <p>
-          I enjoy capturing moments, filming events, and experimenting
-          with video editing and creative storytelling.
-        </p>
-       <div class="photo-row">
-         
-         <div class="photo-slot">
-          <img src="photography-1.jpeg" alt="photograph">
-          
-        </div>
-
-       <div class="photo-slot">
-          <img src="photography-2.jpeg" alt="photograph">
-      
-    </div>
-
-
-<p>
-    <!-- TRAVEL -->
-    <div class="free-time-card">
-      <div class="free-time-icon">✈️</div>
-      <div>
-        <h3>Travelling</h3>
-        <p>
-          Exploring new places, discovering new experiences, and
-          collecting little stories along the way.
-        </p>
-      <div class="photo-row">
-        
-       <div class="photo-slot">
-          <img src="travel-1.jpeg" alt="travel">
-       
-        </div>
-      <div class="photo-slot">
-          <img src="travel-2.jpeg" alt="travel">
-         
-    </div>
-
-
-<p>
-    <!-- JAPANESE -->
-    <div class="free-time-card">
-      <div class="free-time-icon">🇯🇵</div>
-      <div>
-        <h3>Learning Japanese</h3>
-        <p>
-          Currently learning Japanese through Duolingo — one lesson,
-          one streak, and one new word at a time.
-        </p>
-  </div>
-
-</section>
-
-</div>
-
-<footer class="reveal">
-  <span class="eyebrow">Let's Work Together</span>
-  <h2>Get in touch</h2>
-  <div class="pass-contact">
-    <a href="mailto:carmenyap0907@gmail.com">✉ carmenyap0907@gmail.com</a>
-    <a href="https://www.linkedin.com/in/yap-kah-min-095793265" target="_blank" rel="noopener">🔗 LinkedIn</a>     <a href="https://wa.me/60197796761" target="_blank" rel="noopener">📱 WhatsApp</a>
-  </div>
-  <div class="fine">Yap Kah Min · Event &amp; Program Coordinator</div>
-</footer>
-
-<script>
-  const navButtons = document.querySelectorAll('.nav-links button');
-  const sections = Array.from(navButtons).map(b => document.getElementById(b.dataset.target));
-  const navLinks = document.getElementById('navLinks');
-  const navToggle = document.getElementById('navToggle');
-
-  navButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = document.getElementById(btn.dataset.target);
-      target.scrollIntoView({behavior:'smooth', block:'start'});
-      navLinks.classList.remove('open');
     });
-  });
 
-  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 
-  // scroll spy
-  const spy = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        const id = entry.target.id;
-        navButtons.forEach(b => b.classList.toggle('active', b.dataset.target === id));
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    navToggle.addEventListener('click', () => {
+
+      navLinks.classList.toggle('open');
+
+    });
+
+
+    /* =========================================================
+       SCROLL SPY
+    ========================================================= */
+
+    const spy =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              const id =
+                entry.target.id;
+
+              navButtons.forEach(button => {
+
+                button.classList.toggle(
+                  'active',
+                  button.dataset.target === id
+                );
+
+              });
+
+            }
+
+          });
+
+        },
+        {
+          rootMargin: '-40% 0px -50% 0px',
+          threshold: 0
+        }
+      );
+
+
+    sections.forEach(section => {
+
+      if (section) {
+        spy.observe(section);
       }
-    });
-  }, {rootMargin: '-40% 0px -50% 0px', threshold: 0});
-  sections.forEach(s => spy.observe(s));
 
-  // reveal on scroll
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
-      }
     });
-  }, {threshold: 0.08});
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-</script>
+
+
+    /* =========================================================
+       REVEAL ON SCROLL
+    ========================================================= */
+
+    const revealObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add(
+                'is-visible'
+              );
+
+              revealObserver.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.08
+        }
+      );
+
+
+    document
+      .querySelectorAll('.reveal')
+      .forEach(element => {
+
+        revealObserver.observe(element);
+
+      });
+
+  </script>
 
 </body>
 </html>
